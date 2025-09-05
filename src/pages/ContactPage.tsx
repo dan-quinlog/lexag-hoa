@@ -1,4 +1,3 @@
-import React from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Mail, Phone, MapPin, Clock } from 'lucide-react'
 import { HOA_NAME } from '@/lib/constants'
