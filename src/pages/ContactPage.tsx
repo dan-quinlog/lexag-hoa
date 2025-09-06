@@ -1,5 +1,5 @@
 import { Helmet } from 'react-helmet-async'
-import { Mail, Phone, MapPin, Clock } from 'lucide-react'
+import { Mail, MapPin, Clock } from 'lucide-react'
 import { HOA_NAME } from '@/lib/constants'
 
 const ContactPage: React.FC = () => {
@@ -29,10 +29,10 @@ const ContactPage: React.FC = () => {
             
             <div className="space-y-6">
               <div className="flex items-start">
-                <Mail className="h-6 w-6 text-primary-600 mt-1 mr-4 flex-shrink-0" />
+                <Mail className="h-6 w-6 text-grass-600 mt-1 mr-4 flex-shrink-0" />
                 <div>
                   <h3 className="font-medium text-gray-900">Email</h3>
-                  <p className="text-gray-600">board@lexingtoncommons.org</p>
+                  <p className="text-gray-600">info@lexingtoncommons-weco.com</p>
                   <p className="text-sm text-gray-500 mt-1">
                     We typically respond within 24-48 hours
                   </p>
@@ -40,30 +40,19 @@ const ContactPage: React.FC = () => {
               </div>
 
               <div className="flex items-start">
-                <Phone className="h-6 w-6 text-primary-600 mt-1 mr-4 flex-shrink-0" />
-                <div>
-                  <h3 className="font-medium text-gray-900">Phone</h3>
-                  <p className="text-gray-600">(555) 123-4567</p>
-                  <p className="text-sm text-gray-500 mt-1">
-                    Leave a voicemail for non-urgent matters
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start">
-                <MapPin className="h-6 w-6 text-primary-600 mt-1 mr-4 flex-shrink-0" />
+                <MapPin className="h-6 w-6 text-grass-600 mt-1 mr-4 flex-shrink-0" />
                 <div>
                   <h3 className="font-medium text-gray-900">Mailing Address</h3>
                   <p className="text-gray-600">
                     Lexington Commons HOA<br />
-                    1234 Community Drive<br />
-                    Lexington, KY 40502
+                    1250 Hulon Circle<br />
+                    W. Columbia, SC 29169
                   </p>
                 </div>
               </div>
 
               <div className="flex items-start">
-                <Clock className="h-6 w-6 text-primary-600 mt-1 mr-4 flex-shrink-0" />
+                <Clock className="h-6 w-6 text-grass-600 mt-1 mr-4 flex-shrink-0" />
                 <div>
                   <h3 className="font-medium text-gray-900">Office Hours</h3>
                   <p className="text-gray-600">
@@ -74,15 +63,18 @@ const ContactPage: React.FC = () => {
               </div>
             </div>
 
-            <div className="mt-8 card p-6 bg-primary-50">
-              <h3 className="text-lg font-semibold text-primary-900 mb-2">
+            <div className="mt-8 card p-6 bg-grass-50">
+              <h3 className="text-lg font-semibold text-grass-900 mb-2">
                 Emergency Contacts
               </h3>
-              <p className="text-primary-800 text-sm mb-2">
-                For urgent maintenance or security issues:
+              <p className="text-grass-800 text-sm mb-2">
+                For urgent maintenance or security issues, please email us at:
               </p>
-              <p className="text-primary-900 font-medium">
-                Emergency Line: (555) 999-8888
+              <p className="text-grass-900 font-medium">
+                info@lexingtoncommons-weco.com
+              </p>
+              <p className="text-sm text-grass-700 mt-1">
+                Mark subject line as "URGENT" for faster response
               </p>
             </div>
           </div>
