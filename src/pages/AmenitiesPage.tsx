@@ -22,8 +22,18 @@ const AmenitiesPage: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {/* Swimming Pool */}
           <div className="card p-6">
-            <div className="bg-blue-100 rounded-lg h-48 mb-4 flex items-center justify-center">
-              <p className="text-blue-600 font-medium">Pool Image Placeholder</p>
+            <div className="rounded-lg h-48 mb-4 overflow-hidden">
+              <img
+                src="/images/amenities/pool.jpg"
+                alt="Community Swimming Pool"
+                className="w-full h-full object-cover"
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  target.style.display = 'none';
+                  target.parentElement!.classList.add('bg-blue-100', 'flex', 'items-center', 'justify-center');
+                  target.parentElement!.innerHTML = '<p class="text-blue-600 font-medium">Pool Image<br />Place: /images/amenities/pool.jpg</p>';
+                }}
+              />
             </div>
             <h3 className="text-xl font-semibold text-gray-900 mb-2">
               Swimming Pool
@@ -42,8 +52,18 @@ const AmenitiesPage: React.FC = () => {
 
           {/* Clubhouse */}
           <div className="card p-6">
-            <div className="bg-green-100 rounded-lg h-48 mb-4 flex items-center justify-center">
-              <p className="text-green-600 font-medium">Clubhouse Image Placeholder</p>
+            <div className="rounded-lg h-48 mb-4 overflow-hidden">
+              <img
+                src="/images/amenities/clubhouse.jpg"
+                alt="Community Clubhouse"
+                className="w-full h-full object-cover"
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  target.style.display = 'none';
+                  target.parentElement!.classList.add('bg-green-100', 'flex', 'items-center', 'justify-center');
+                  target.parentElement!.innerHTML = '<p class="text-green-600 font-medium">Clubhouse Image<br />Place: /images/amenities/clubhouse.jpg</p>';
+                }}
+              />
             </div>
             <h3 className="text-xl font-semibold text-gray-900 mb-2">
               Community Clubhouse
@@ -62,8 +82,18 @@ const AmenitiesPage: React.FC = () => {
 
           {/* Kids Playground */}
           <div className="card p-6">
-            <div className="bg-yellow-100 rounded-lg h-48 mb-4 flex items-center justify-center">
-              <p className="text-yellow-600 font-medium">Playground Image Placeholder</p>
+            <div className="rounded-lg h-48 mb-4 overflow-hidden">
+              <img
+                src="/images/amenities/playground.jpg"
+                alt="Kids Playground"
+                className="w-full h-full object-cover"
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  target.style.display = 'none';
+                  target.parentElement!.classList.add('bg-yellow-100', 'flex', 'items-center', 'justify-center');
+                  target.parentElement!.innerHTML = '<p class="text-yellow-600 font-medium">Playground Image<br />Place: /images/amenities/playground.jpg</p>';
+                }}
+              />
             </div>
             <h3 className="text-xl font-semibold text-gray-900 mb-2">
               Kids Playground

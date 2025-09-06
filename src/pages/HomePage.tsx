@@ -13,11 +13,31 @@ const HomePage: React.FC = () => {
         {/* Welcome Images Section */}
         <section className="mb-12">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="bg-gray-200 rounded-lg h-64 flex items-center justify-center">
-              <p className="text-gray-500">Welcome Image 1 Placeholder</p>
+            <div className="rounded-lg overflow-hidden h-64">
+              <img
+                src="/images/home/welcome-1.jpg"
+                alt="Welcome to Lexington Commons HOA"
+                className="w-full h-full object-cover"
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  target.style.display = 'none';
+                  target.parentElement!.classList.add('bg-gray-200', 'flex', 'items-center', 'justify-center');
+                  target.parentElement!.innerHTML = '<p class="text-gray-500">Welcome Image 1<br />Place: /images/home/welcome-1.jpg</p>';
+                }}
+              />
             </div>
-            <div className="bg-gray-200 rounded-lg h-64 flex items-center justify-center">
-              <p className="text-gray-500">Welcome Image 2 Placeholder</p>
+            <div className="rounded-lg overflow-hidden h-64">
+              <img
+                src="/images/home/welcome-2.jpg"
+                alt="Lexington Commons Community Overview"
+                className="w-full h-full object-cover"
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  target.style.display = 'none';
+                  target.parentElement!.classList.add('bg-gray-200', 'flex', 'items-center', 'justify-center');
+                  target.parentElement!.innerHTML = '<p class="text-gray-500">Welcome Image 2<br />Place: /images/home/welcome-2.jpg</p>';
+                }}
+              />
             </div>
           </div>
         </section>
