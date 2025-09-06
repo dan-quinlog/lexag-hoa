@@ -18,11 +18,11 @@
 
 @layer components {
   .btn {
-    @apply inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-grass-400 focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none;
+    @apply inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-grass-500 focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none;
   }
 
   .btn-primary {
-    @apply btn bg-grass-400 text-white hover:bg-grass-500 h-10 py-2 px-4;
+    @apply btn bg-grass-600 text-white hover:bg-grass-700 h-10 py-2 px-4;
   }
 
   .btn-secondary {
@@ -30,7 +30,7 @@
   }
 
   .btn-success {
-    @apply btn bg-grass-400 text-white hover:bg-grass-500 h-10 py-2 px-4;
+    @apply btn bg-grass-600 text-white hover:bg-grass-700 h-10 py-2 px-4;
   }
 
   .btn-cancel {
@@ -42,6 +42,6 @@
   }
 
   .input {
-    @apply flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-grass-400 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50;
+    @apply flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-grass-500 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50;
   }
 }
