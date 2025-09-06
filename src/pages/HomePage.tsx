@@ -13,7 +13,7 @@ const HomePage: React.FC = () => {
         {/* Welcome Images Section */}
         <section className="mb-12">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="rounded-lg overflow-hidden h-64">
+            <div className="rounded-lg overflow-hidden h-64 md:h-80">
               <img
                 src="/images/home/welcome-1.jpg"
                 alt="Welcome to Lexington Commons HOA"
@@ -26,7 +26,7 @@ const HomePage: React.FC = () => {
                 }}
               />
             </div>
-            <div className="rounded-lg overflow-hidden h-64">
+            <div className="rounded-lg overflow-hidden h-64 md:h-80">
               <img
                 src="/images/home/welcome-2.jpg"
                 alt="Lexington Commons Community Overview"
