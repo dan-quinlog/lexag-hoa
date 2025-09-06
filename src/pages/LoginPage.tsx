@@ -80,7 +80,7 @@ const LoginPage: React.FC = () => {
               <div>
                 <button
                   type="submit"
-                  className="btn-primary w-full"
+                  className="btn-success w-full"
                 >
                   Sign in
                 </button>

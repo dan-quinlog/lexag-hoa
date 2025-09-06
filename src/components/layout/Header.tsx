@@ -12,14 +12,14 @@ const Header: React.FC = () => {
   }
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm border-b">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-grass-200 shadow-sm border-b border-grass-300">
       {/* Desktop Header */}
       <div className="hidden md:block">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <Link 
               to={ROUTES.HOME}
-              className="text-xl font-bold text-primary-700 hover:text-primary-800 transition-colors"
+              className="text-xl font-bold text-grass-800 hover:text-grass-900 transition-colors"
             >
               {HOA_NAME}
             </Link>
@@ -34,13 +34,13 @@ const Header: React.FC = () => {
           <div className="flex justify-between items-center h-16">
             <Link 
               to={ROUTES.HOME}
-              className="text-lg font-bold text-primary-700"
+              className="text-lg font-bold text-grass-800"
             >
               {HOA_NAME}
             </Link>
             <button
               type="button"
-              className="p-2 text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-md transition-colors"
+              className="p-2 text-grass-700 hover:text-grass-900 hover:bg-grass-100 rounded-md transition-colors"
               onClick={toggleMobileMenu}
               aria-label="Toggle mobile menu"
             >

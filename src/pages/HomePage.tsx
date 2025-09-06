@@ -82,7 +82,7 @@ const HomePage: React.FC = () => {
 
           {/* Load More Button (will be replaced with infinite scroll) */}
           <div className="text-center mt-8">
-            <button className="btn-secondary">
+            <button className="btn-success">
               Load More Updates
             </button>
           </div>

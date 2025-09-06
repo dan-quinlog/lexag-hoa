@@ -36,7 +36,7 @@ const Navigation: React.FC<NavigationProps> = ({ isMobile, isOpen, onClose }) =>
     return (
       <div className={`
         ${isOpen ? 'block' : 'hidden'} 
-        border-t border-gray-200 bg-white
+        border-t border-grass-300 bg-grass-100
       `}>
         <div className="px-2 pt-2 pb-3 space-y-1">
           {navItems.map((item) => {
@@ -47,8 +47,8 @@ const Navigation: React.FC<NavigationProps> = ({ isMobile, isOpen, onClose }) =>
                 to={item.href}
                 className={`
                   ${isActive(item.href) 
-                    ? 'bg-primary-50 text-primary-700 border-r-2 border-primary-700' 
-                    : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
+                    ? 'bg-grass-50 text-grass-800 border-r-2 border-grass-600' 
+                    : 'text-gray-700 hover:text-gray-900 hover:bg-grass-50'
                   }
                   group flex items-center px-3 py-2 text-base font-medium rounded-md transition-colors
                 `}
@@ -60,7 +60,7 @@ const Navigation: React.FC<NavigationProps> = ({ isMobile, isOpen, onClose }) =>
             )
           })}
           
-          <div className="border-t border-gray-200 mt-3 pt-3">
+          <div className="border-t border-grass-300 mt-3 pt-3">
             {authItems.map((item) => {
               const Icon = item.icon
               return (
@@ -69,8 +69,8 @@ const Navigation: React.FC<NavigationProps> = ({ isMobile, isOpen, onClose }) =>
                   to={item.href}
                   className={`
                     ${isActive(item.href) 
-                      ? 'bg-primary-50 text-primary-700' 
-                      : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
+                      ? 'bg-grass-50 text-grass-800' 
+                      : 'text-gray-700 hover:text-gray-900 hover:bg-grass-50'
                     }
                     group flex items-center px-3 py-2 text-base font-medium rounded-md transition-colors
                   `}
@@ -97,8 +97,8 @@ const Navigation: React.FC<NavigationProps> = ({ isMobile, isOpen, onClose }) =>
             to={item.href}
             className={`
               ${isActive(item.href) 
-                ? 'text-primary-700 border-b-2 border-primary-700' 
-                : 'text-gray-600 hover:text-gray-900'
+                ? 'text-grass-800 border-b-2 border-grass-600' 
+                : 'text-gray-700 hover:text-gray-900'
               }
               px-3 py-2 text-sm font-medium transition-colors border-b-2 border-transparent
             `}
@@ -119,7 +119,7 @@ const Navigation: React.FC<NavigationProps> = ({ isMobile, isOpen, onClose }) =>
                 : 'text-gray-600 hover:text-gray-900'
               }
               ${index === 0 && !user 
-                ? 'px-3 py-2 text-sm font-medium' // Sign In button
+                ? 'px-3 py-2 text-sm font-medium text-gray-700 hover:text-gray-900' // Sign In button
                 : ''
               }
               transition-colors
