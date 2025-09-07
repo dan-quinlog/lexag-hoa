@@ -197,9 +197,19 @@ For technical issues or feature requests, please contact the development team th
 - **Testing**: Unit testing framework setup, integration tests pending
 - **Deployment**: GitHub Actions CI/CD configured, AWS deployment pending
 
+## 🔐 Security & Environment Variables
+
+This is a **public repository** designed for portfolio demonstration and code review. All sensitive data (AWS credentials, database passwords, API keys) are handled through environment variables and are **never committed to the repository**.
+
+**Environment Configuration:**
+- Copy `aws-config.env` to `.env.local` for your configuration
+- All sensitive values are marked with `<PLACEHOLDER>` in example files
+- AWS credentials and API keys must be configured locally or in deployment environment
+- See backend security documentation for complete guidelines
+
 ## 🤝 Contributing
 
-This is a private project for Lexington Commons HOA. Development is managed by the HOA board and authorized developers.
+This project is open source for educational purposes, but the live implementation is for Lexington Commons HOA. Contributions welcome for general HOA management functionality.
 
 ### Development Workflow
 1. Create feature branch from `dev`
@@ -211,7 +221,9 @@ This is a private project for Lexington Commons HOA. Development is managed by t
 
 ## 📄 License
 
-Private software for Lexington Commons HOA. Not licensed for public use.
+MIT License - This project is open source for educational and portfolio purposes.
+
+**Note**: This codebase demonstrates modern React + AWS architecture and is available publicly for code review and learning. The live implementation serves Lexington Commons HOA.
 
 ---
 
