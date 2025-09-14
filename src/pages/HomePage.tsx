@@ -1,5 +1,6 @@
 import { Helmet } from 'react-helmet-async'
 import { HOA_NAME } from '@/lib/constants'
+import BulletinList from '@/components/bulletins/BulletinList'
 
 const HomePage: React.FC = () => {
   return (
@@ -53,32 +54,8 @@ const HomePage: React.FC = () => {
             </p>
           </div>
 
-          {/* TODO: Replace with actual BulletinList component */}
-          <div className="space-y-6">
-            {/* Placeholder bulletin cards */}
-            {Array.from({ length: 3 }).map((_, index) => (
-              <div key={index} className="card p-6">
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                  Sample Bulletin {index + 1}
-                </h3>
-                <p className="text-gray-600 mb-4">
-                  This is a placeholder for bulletin content. The actual content will be rich text 
-                  from the GraphQL API with proper formatting and subject tags.
-                </p>
-                <div className="flex flex-wrap gap-2 mb-3">
-                  <span className="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded-full">
-                    Community
-                  </span>
-                  <span className="px-2 py-1 bg-green-100 text-green-800 text-xs rounded-full">
-                    Updates
-                  </span>
-                </div>
-                <p className="text-sm text-gray-500">
-                  Published on September 4, 2025
-                </p>
-              </div>
-            ))}
-          </div>
+          {/* Real-time bulletin board powered by GraphQL */}
+          <BulletinList />
 
           {/* Load More Button (will be replaced with infinite scroll) */}
           <div className="text-center mt-8">

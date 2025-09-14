@@ -1,6 +1,8 @@
 import { Link, useLocation } from 'react-router-dom'
-import { Home, Building, Phone, LogIn, UserPlus } from 'lucide-react'
+import { Home, Building, Phone, LogIn, UserPlus, LogOut, User, Shield } from 'lucide-react'
 import { ROUTES } from '@/lib/constants'
+import { useAuth } from '@/contexts/AuthContext'
+import { isBoardMember } from '@/lib/permissions'
 
 interface NavigationProps {
   isMobile: boolean
@@ -10,20 +12,31 @@ interface NavigationProps {
 
 const Navigation: React.FC<NavigationProps> = ({ isMobile, isOpen, onClose }) => {
   const location = useLocation()
+  const { isAuthenticated, signOut } = useAuth()
   
-  // TODO: Replace with actual auth state
-  const user = null
+  // Mock user groups - in real implementation this comes from Cognito user attributes
+  const userGroups = isAuthenticated ? ['residents', 'board', 'president'] : [];
+  const showBoardAccess = isBoardMember(userGroups);
   
   const navItems = [
     { href: ROUTES.HOME, label: 'Home', icon: Home },
     { href: ROUTES.AMENITIES, label: 'Amenities', icon: Building },
     { href: ROUTES.CONTACT, label: 'Contact', icon: Phone },
   ]
+  
+  const boardNavItems = showBoardAccess ? [
+    { href: '/board', label: 'Board Dashboard', icon: Shield },
+  ] : []
 
-  const authItems = user 
+  const handleSignOut = () => {
+    signOut()
+    onClose()
+  }
+
+  const authItems = isAuthenticated 
     ? [
-        { href: '/dashboard', label: 'Dashboard', icon: Home },
-        { href: '#', label: 'Sign Out', icon: LogIn, action: 'signout' },
+        { href: '/profile', label: 'Profile', icon: User },
+        { href: '#', label: 'Sign Out', icon: LogOut, action: 'signout', onClick: handleSignOut },
       ]
     : [
         { href: ROUTES.LOGIN, label: 'Sign In', icon: LogIn },
@@ -60,9 +73,54 @@ const Navigation: React.FC<NavigationProps> = ({ isMobile, isOpen, onClose }) =>
             )
           })}
           
+          {/* Board Navigation Section */}
+          {boardNavItems.length > 0 && (
+            <>
+              <div className="border-t border-grass-400 mt-3 pt-3">
+                <p className="px-3 text-xs font-medium text-gray-500 uppercase tracking-wide">
+                  Board Tools
+                </p>
+              </div>
+              {boardNavItems.map((item) => {
+                const Icon = item.icon
+                return (
+                  <Link
+                    key={item.href}
+                    to={item.href}
+                    className={`
+                      ${isActive(item.href) 
+                        ? 'bg-grass-100 text-grass-900 border-r-2 border-grass-700' 
+                        : 'text-gray-700 hover:text-gray-900 hover:bg-grass-100'
+                      }
+                      group flex items-center px-3 py-2 text-base font-medium rounded-md transition-colors
+                    `}
+                    onClick={onClose}
+                  >
+                    <Icon className="mr-3 h-5 w-5" />
+                    {item.label}
+                  </Link>
+                )
+              })}
+            </>
+          )}
+          
           <div className="border-t border-grass-400 mt-3 pt-3">
             {authItems.map((item) => {
               const Icon = item.icon
+              
+              if (item.action === 'signout') {
+                return (
+                  <button
+                    key={item.label}
+                    onClick={item.onClick}
+                    className="text-gray-700 hover:text-gray-900 hover:bg-grass-100 group flex items-center w-full px-3 py-2 text-base font-medium rounded-md transition-colors"
+                  >
+                    <Icon className="mr-3 h-5 w-5" />
+                    {item.label}
+                  </button>
+                )
+              }
+              
               return (
                 <Link
                   key={item.href}
@@ -106,28 +164,60 @@ const Navigation: React.FC<NavigationProps> = ({ isMobile, isOpen, onClose }) =>
             {item.label}
           </Link>
         ))}
-      </div>
-      
-      <div className="flex items-center space-x-4">
-        {authItems.map((item, index) => (
+        
+        {/* Board Navigation */}
+        {boardNavItems.map((item) => (
           <Link
             key={item.href}
             to={item.href}
             className={`
-              ${index === authItems.length - 1 && !user
-                ? 'btn-primary' // Sign Up button
-                : 'text-gray-600 hover:text-gray-900'
+              ${isActive(item.href) 
+                ? 'text-grass-900 border-b-2 border-grass-700' 
+                : 'text-gray-700 hover:text-gray-900'
               }
-              ${index === 0 && !user 
-                ? 'px-3 py-2 text-sm font-medium text-gray-700 hover:text-gray-900' // Sign In button
-                : ''
-              }
-              transition-colors
+              px-3 py-2 text-sm font-medium transition-colors border-b-2 border-transparent flex items-center space-x-1
             `}
           >
-            {item.label}
+            <Shield className="h-4 w-4" />
+            <span>{item.label}</span>
           </Link>
         ))}
+      </div>
+      
+      <div className="flex items-center space-x-4">
+        {authItems.map((item, index) => {
+          if (item.action === 'signout') {
+            return (
+              <button
+                key={item.label}
+                onClick={item.onClick}
+                className="text-gray-600 hover:text-gray-900 transition-colors px-3 py-2 text-sm font-medium"
+              >
+                {item.label}
+              </button>
+            )
+          }
+          
+          return (
+            <Link
+              key={item.href}
+              to={item.href}
+              className={`
+                ${index === authItems.length - 1 && !isAuthenticated
+                  ? 'btn-primary' // Sign Up button
+                  : 'text-gray-600 hover:text-gray-900'
+                }
+                ${index === 0 && !isAuthenticated 
+                  ? 'px-3 py-2 text-sm font-medium text-gray-700 hover:text-gray-900' // Sign In button
+                  : ''
+                }
+                transition-colors
+              `}
+            >
+              {item.label}
+            </Link>
+          )
+        })}
       </div>
     </nav>
   )
